@@ -1,0 +1,14 @@
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\bin\Debug\net8.0\ConsolaV2.exe
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\bin\Debug\net8.0\ConsolaV2.deps.json
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\bin\Debug\net8.0\ConsolaV2.runtimeconfig.json
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\bin\Debug\net8.0\ConsolaV2.dll
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\bin\Debug\net8.0\ConsolaV2.pdb
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.AssemblyInfoInputs.cache
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.AssemblyInfo.cs
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.csproj.CoreCompileInputs.cache
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.dll
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\refint\ConsolaV2.dll
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.pdb
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.genruntimeconfig.cache
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ref\ConsolaV2.dll
