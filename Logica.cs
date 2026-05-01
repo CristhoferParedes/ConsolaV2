@@ -8,5 +8,6 @@ namespace ConsolaV2
 {
     internal class Logica
     {
+        
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsolaV2
+﻿namespace ConsolaV2
 {
     internal class Interfaz
     {
@@ -39,22 +33,22 @@ namespace ConsolaV2
             Console.ResetColor();
         }
 
-        public static void MenuPrincipal()
+        public static int MenuPrincipal()
         {
-            string[] opciones = { "REGISTRAR", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };
+            var opciones = new[] { "REGISTRAR", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };
             int index = 0;
             ConsoleKey tecla;
 
             do
             {
                 Console.SetCursorPosition(1, 3);
-
                 for (int i = 0; i < opciones.Length; i++)
                 {
-                    if (i == index) Console.ForegroundColor = ConsoleColor.Black;                               
-                    else Console.ForegroundColor = ConsoleColor.Gray;
-     
                     Console.BackgroundColor = ConsoleColor.White;
+                    Console.ForegroundColor = ConsoleColor.Black;
+
+                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;                               
+                        
                     Console.Write($"   {opciones[i]}   ");
                     Console.ResetColor();
                     Console.Write(" ");
@@ -73,6 +67,83 @@ namespace ConsolaV2
                     if (index < 0) index = opciones.Length - 1;
                 }
             } while (tecla != ConsoleKey.Enter);
+            return index;
+        }
+
+        public static int SubMenuRegistrar()
+        {
+            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES"};
+            int index = 0;
+            ConsoleKey tecla;
+
+            do
+            {              
+                for (int i = 0; i < opciones.Length; i++)
+                {               
+                    Console.SetCursorPosition(2, (5 + i));
+
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.BackgroundColor = ConsoleColor.White;
+
+                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;
+
+                    Console.Write($" {opciones[i]} ");
+                    Console.WriteLine();
+                    Console.ResetColor();
+                }
+
+                tecla = Console.ReadKey(true).Key;
+
+                if (tecla == ConsoleKey.DownArrow)
+                {
+                    index++;
+                    if (index > opciones.Length - 1) index = 0;
+                }
+                else if (tecla == ConsoleKey.UpArrow)
+                {
+                    index--;
+                    if (index < 0) index = opciones.Length - 1;
+                }
+
+                if (tecla == ConsoleKey.Escape)
+                {
+                    Console.SetCursorPosition(2, 5);
+                    Console.WriteLine("                                                         ");
+                    Console.SetCursorPosition(2, 6);
+                    Console.WriteLine("                                                         ");
+                    Console.SetCursorPosition(2, 7);
+                    Console.WriteLine("                                                         ");
+                    Console.SetCursorPosition(2, 8);
+                    Console.WriteLine("                                                         ");
+                    Console.SetCursorPosition(2, 9);
+                    Console.WriteLine("                                                         ");
+
+                    return 10;
+                }
+
+            } while (tecla != ConsoleKey.Enter);
+
+
+            //limpia cuando termina el bucle while y se regresa al do while anterior.
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+
+            
+            return index;
+        }
+        public static void OpcionProductos()
+        {
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("uwu");
+            Console.ReadKey(true);
         }
     }
 }

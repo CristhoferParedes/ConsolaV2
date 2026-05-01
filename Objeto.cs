@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsolaV2
+﻿namespace ConsolaV2
 {
-    internal class Objeto
+    internal class Producto
     {
+        public string? codigo;
+        public string? nombre;
+        public string? categoria;
+        public double stock;
+        public double precio;
+        public static Producto[] listaProductos = new Producto[10];
     }
 }

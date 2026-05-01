@@ -12,3 +12,4 @@ C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\refint\Co
 C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.pdb
 C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.genruntimeconfig.cache
 C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ref\ConsolaV2.dll
+C:\Users\Cristhofer\Desktop\CristhProyectos\ConsolaV2\obj\Debug\net8.0\ConsolaV2.sourcelink.json
