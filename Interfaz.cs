@@ -142,8 +142,43 @@
         public static void OpcionProductos()
         {
             Console.SetCursorPosition(2, 5);
-            Console.WriteLine("uwu");
-            Console.ReadKey(true);
+            Console.Write("Ingresar el codigo del producto : ");
+            string? agregarCod = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 6);
+            Console.Write("Ingresar el nombre del producto : ");
+            string? agregarNom = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 7);
+            Console.Write("Ingresar la categoria del producto : ");
+            string? agregarCat = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 8);
+            Console.Write("Ingresar stock del producto");
+            int agregarSto = Int32.Parse(Console.ReadLine());
+
+            Console.SetCursorPosition(2, 9);
+            Console.Write("Ingresar precio del producto");
+            double agregarPre = double.Parse(Console.ReadLine());
+
+            Logica.AgregarProducto(agregarCod, agregarNom, agregarCat, agregarSto, agregarPre);
+
+            Console.SetCursorPosition(2, 10);
+            Console.Write("¡SE REGISTRO EL NUEVO PRODUCTO CORRECTAMENTE!");
+            Console.ReadLine();
+
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 10);
+            Console.WriteLine("                                                         ");
         }
     }
 }

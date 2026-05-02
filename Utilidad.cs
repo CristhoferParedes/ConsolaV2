@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ConsolaV2
+﻿namespace ConsolaV2
 {
+    //posibilidad de funciones comunes para el proyecto, como validaciones, conversiones, etc.
     internal class Utilidad
     {
     }
