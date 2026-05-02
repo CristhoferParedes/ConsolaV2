@@ -72,74 +72,23 @@
 
         public static int SubMenuRegistrar()
         {
-            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES"};
-            int index = 0;
-            ConsoleKey tecla;
-
-            do
-            {              
-                for (int i = 0; i < opciones.Length; i++)
-                {               
-                    Console.SetCursorPosition(2, (5 + i));
-
-                    Console.ForegroundColor = ConsoleColor.Black;
-                    Console.BackgroundColor = ConsoleColor.White;
-
-                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;
-
-                    Console.Write($" {opciones[i]} ");
-                    Console.WriteLine();
-                    Console.ResetColor();
-                }
-
-                tecla = Console.ReadKey(true).Key;
-
-                if (tecla == ConsoleKey.DownArrow)
-                {
-                    index++;
-                    if (index > opciones.Length - 1) index = 0;
-                }
-                else if (tecla == ConsoleKey.UpArrow)
-                {
-                    index--;
-                    if (index < 0) index = opciones.Length - 1;
-                }
-
-                if (tecla == ConsoleKey.Escape)
-                {
-                    Console.SetCursorPosition(2, 5);
-                    Console.WriteLine("                                                         ");
-                    Console.SetCursorPosition(2, 6);
-                    Console.WriteLine("                                                         ");
-                    Console.SetCursorPosition(2, 7);
-                    Console.WriteLine("                                                         ");
-                    Console.SetCursorPosition(2, 8);
-                    Console.WriteLine("                                                         ");
-                    Console.SetCursorPosition(2, 9);
-                    Console.WriteLine("                                                         ");
-
-                    return 10;
-                }
-
-            } while (tecla != ConsoleKey.Enter);
-
-
-            //limpia cuando termina el bucle while y se regresa al do while anterior.
-            Console.SetCursorPosition(2, 5);
-            Console.WriteLine("                                                         ");
-            Console.SetCursorPosition(2, 6);
-            Console.WriteLine("                                                         ");
-            Console.SetCursorPosition(2, 7);
-            Console.WriteLine("                                                         ");
-            Console.SetCursorPosition(2, 8);
-            Console.WriteLine("                                                         ");
-            Console.SetCursorPosition(2, 9);
-            Console.WriteLine("                                                         ");
-
-            
-            return index;
+            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES" };
+            return Utilidad.ApoyoSubMenu(opciones);
         }
-        public static void OpcionProductos()
+
+        public static int SubMenuVentas()
+        {
+            var opciones = new[] { "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
+            return Utilidad.ApoyoSubMenu(opciones);
+        }
+
+        public static int SubMenuReporte()
+        {
+            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES", "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
+            return Utilidad.ApoyoSubMenu(opciones);
+        }
+
+        public static void RegistarProductos()
         {
             Console.SetCursorPosition(2, 5);
             Console.Write("Ingresar el codigo del producto : ");
@@ -154,16 +103,16 @@
             string? agregarCat = Console.ReadLine();
 
             Console.SetCursorPosition(2, 8);
-            Console.Write("Ingresar stock del producto");
-            int agregarSto = Int32.Parse(Console.ReadLine());
+            Console.Write("Ingresar stock del producto : ");
+            int agregarSto = Int32.Parse(Console.ReadLine()!);
 
             Console.SetCursorPosition(2, 9);
-            Console.Write("Ingresar precio del producto");
-            double agregarPre = double.Parse(Console.ReadLine());
+            Console.Write("Ingresar precio del producto : ");
+            double agregarPre = double.Parse(Console.ReadLine()!);
 
             Logica.AgregarProducto(agregarCod, agregarNom, agregarCat, agregarSto, agregarPre);
 
-            Console.SetCursorPosition(2, 10);
+            Console.SetCursorPosition(2, 12);
             Console.Write("¡SE REGISTRO EL NUEVO PRODUCTO CORRECTAMENTE!");
             Console.ReadLine();
 
@@ -177,8 +126,17 @@
             Console.WriteLine("                                                         ");
             Console.SetCursorPosition(2, 9);
             Console.WriteLine("                                                         ");
-            Console.SetCursorPosition(2, 10);
+            Console.SetCursorPosition(2, 12);
             Console.WriteLine("                                                         ");
         }
+
+        public static void VentaBoleta()
+        {
+        }
+
+        public static void ReporteProductos()
+        {
+        }
+
     }
 }

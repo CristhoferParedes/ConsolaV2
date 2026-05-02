@@ -1,5 +1,6 @@
 ﻿using ConsolaV2;
 
+Console.Clear();
 Console.CursorVisible = false;
 
 Interfaz.BloqueFijo();
@@ -21,14 +22,31 @@ do
 
                     switch (posSubMenu)
                     {
-                        case 0:
-                            Interfaz.OpcionProductos(); break;
+                        case 0: Interfaz.RegistarProductos(); break;
                     }
 
                 } while (posSubMenu != 10);
                 break;
             }
+        case 1:
+                do {                 
+                    posSubMenu = Interfaz.SubMenuVentas();
+                    switch (posSubMenu)
+                    {
+                        case 0: Interfaz.VentaBoleta(); break;
+                    }
+                } while (posSubMenu != 10);
+                break;
+        case 2:
 
+                do{
+                    posSubMenu = Interfaz.SubMenuReporte();
+                    switch (posSubMenu)
+                    {
+                        case 0: Interfaz.ReporteProductos(); break;
+                    }
+                } while (posSubMenu != 10);
+                break;
     }
 
 } while (posMenu != 5);
