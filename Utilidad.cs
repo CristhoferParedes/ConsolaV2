@@ -1,9 +1,10 @@
 ﻿namespace ConsolaV2
 {
-    //posibilidad de funciones comunes para el proyecto, como validaciones, conversiones, etc.
+    
+    // se puede construir un bloque para el menu y sub menus
     internal class Utilidad
     {
-        public static int ApoyoSubMenu(string[] opcion)
+        public static int ApoyoSubMenu(string[] opcion, int position)
         {
             int index = 0;
             ConsoleKey tecla;
@@ -12,7 +13,7 @@
             {
                 for (int i = 0; i < opcion.Length; i++)
                 {
-                    Console.SetCursorPosition(2, (5 + i));
+                    Console.SetCursorPosition(position, (5 + i));
 
                     Console.ForegroundColor = ConsoleColor.Black;
                     Console.BackgroundColor = ConsoleColor.White;

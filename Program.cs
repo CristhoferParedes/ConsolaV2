@@ -15,38 +15,37 @@ do
     switch (posMenu)
     {
         case 0:
+            do
             {
-                do
+                posSubMenu = Interfaz.SubMenuRegistrar();
+                switch (posSubMenu)
                 {
-                    posSubMenu = Interfaz.SubMenuRegistrar();
-
-                    switch (posSubMenu)
-                    {
-                        case 0: Interfaz.RegistarProductos(); break;
-                    }
-
-                } while (posSubMenu != 10);
-                break;
-            }
+                    case 0: Interfaz.RegistarProductos(); break;
+                    case 1: Interfaz.RegistrarClientes(); break;
+                    case 2: Interfaz.RegistrarVendedores(); break;
+                }
+            } while (posSubMenu != 10);
+            break;
         case 1:
-                do {                 
-                    posSubMenu = Interfaz.SubMenuVentas();
-                    switch (posSubMenu)
-                    {
-                        case 0: Interfaz.VentaBoleta(); break;
-                    }
-                } while (posSubMenu != 10);
-                break;
+            do
+            {
+                posSubMenu = Interfaz.SubMenuVentas();
+                switch (posSubMenu)
+                {
+                    case 0: Interfaz.VentaBoleta(); break;
+                }
+            } while (posSubMenu != 10);
+            break;
         case 2:
-
-                do{
-                    posSubMenu = Interfaz.SubMenuReporte();
-                    switch (posSubMenu)
-                    {
-                        case 0: Interfaz.ReporteProductos(); break;
-                    }
-                } while (posSubMenu != 10);
-                break;
+            do
+            {
+                posSubMenu = Interfaz.SubMenuReporte();
+                switch (posSubMenu)
+                {
+                    case 0: Interfaz.ReporteProductos(); break;
+                }
+            } while (posSubMenu != 10);
+            break;
     }
 
 } while (posMenu != 5);

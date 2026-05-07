@@ -43,12 +43,12 @@
             {
                 Console.SetCursorPosition(1, 3);
                 for (int i = 0; i < opciones.Length; i++)
-                {
+                {                 
                     Console.BackgroundColor = ConsoleColor.White;
                     Console.ForegroundColor = ConsoleColor.Black;
 
-                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;                               
-                        
+                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;
+                    
                     Console.Write($"   {opciones[i]}   ");
                     Console.ResetColor();
                     Console.Write(" ");
@@ -73,19 +73,8 @@
         public static int SubMenuRegistrar()
         {
             var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES" };
-            return Utilidad.ApoyoSubMenu(opciones);
-        }
-
-        public static int SubMenuVentas()
-        {
-            var opciones = new[] { "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
-            return Utilidad.ApoyoSubMenu(opciones);
-        }
-
-        public static int SubMenuReporte()
-        {
-            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES", "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
-            return Utilidad.ApoyoSubMenu(opciones);
+            int position = 2;
+            return Utilidad.ApoyoSubMenu(opciones,position);
         }
 
         public static void RegistarProductos()
@@ -130,12 +119,209 @@
             Console.WriteLine("                                                         ");
         }
 
+        public static void RegistrarClientes()
+        {
+            Console.SetCursorPosition(2, 5);
+            Console.Write("Ingresar su DNI   :  ");
+            string? agregarDni = Console.ReadLine();
+            Console.SetCursorPosition(2, 6);
+            Console.Write("Ingresar su nombre completo  : ");
+            string? agregarNom = Console.ReadLine();
+            Console.SetCursorPosition(2, 7);
+            Console.Write("Ingresar su apellido completo: ");
+            string? agregarApe = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 8);
+            Console.Write("Ingresar su direccion   :  ");
+            string? agregarDir = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 9);
+            Console.Write("Ingresar su telefono   :  ");
+            string? agregarTel = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 10);
+            Console.Write("Ingresar su correo electronico : ");
+            string? agregarCor = Console.ReadLine();
+
+
+            Logica.AgregarCliente(agregarDni, agregarNom, agregarApe, agregarDir, agregarTel, agregarCor);
+
+            Console.SetCursorPosition(2, 12);
+            Console.Write("¡SE REGISTRO AL NUEVO CLIENTE CORRECTAMENTE!");
+            Console.ReadLine();
+
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 10);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 12);
+            Console.WriteLine("                                                         ");
+
+        }
+
+        public static void RegistrarVendedores()
+        {
+            Console.SetCursorPosition(2, 5);
+            Console.Write("Ingresar su codigo del vendedor: ");
+            string? agregarCod = Console.ReadLine();
+            Console.SetCursorPosition(2, 6);
+            Console.Write("Ingresar su nombre completo    : ");
+            string? agregarNom = Console.ReadLine();
+            Console.SetCursorPosition(2, 7);
+            Console.Write("Ingresar su apellido completo  : ");
+            string? agregarApe = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 8);
+            Console.Write("Ingresar su sueldo del vendedor: ");
+            string? agregarSue = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 9);
+            Console.Write("Ingresar su telefono           : ");
+            string? agregarTel = Console.ReadLine();
+
+            Logica.AgregarVendedores(agregarCod, agregarNom, agregarApe, agregarSue, agregarTel);
+
+            Console.SetCursorPosition(2, 12);
+            Console.Write("¡SE REGISTRO UN VEMDEDOR CORRECTAMENTE!");
+            Console.ReadLine();
+
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 10);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 12);
+            Console.WriteLine("                                                         ");
+
+        }
+
+        public static void RegistrarProveedores()
+        {
+            Console.SetCursorPosition(2, 5);
+            Console.Write("Ingresar su codigo de proveedor : ");
+            string? agregarCod = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 6);
+            Console.Write("Ingresar su nombre de la empresa: ");
+            string? agregarNom = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 7);
+            Console.Write("Ingresar su numero de RUC       : ");
+            string? agregarRuc = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 8);
+            Console.Write("Ingresar el nombre del representante: ");
+            string? agregarRep = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 9);
+            Console.Write("Ingresar su telefono           :  ");
+            string? agregarTel = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 10);
+            Console.Write("Ingresar su direccion           : ");
+            string? agregarDir = Console.ReadLine();
+
+            Console.SetCursorPosition(2, 11);
+            Console.Write("Ingresar su Ciudad              : ");
+            string? agregarCiu = Console.ReadLine();
+
+
+            Logica.AgregarProveedores(agregarCod, agregarNom, agregarRuc, agregarRep, agregarTel, agregarDir ,agregarCiu);
+
+            Console.SetCursorPosition(2, 12);
+            Console.Write("¡SE REGISTRO AL NUEVO CLIENTE CORRECTAMENTE!");
+            Console.ReadLine();
+
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 10);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 12);
+            Console.WriteLine("                                                         ");
+
+        }
+
+        public static int SubMenuVentas()
+        {
+            var opciones = new[] { "BOLETAS  ", "FACTURAS ", "GUIAS    ", "PROFORMAS" };
+            int position = 17;
+            return Utilidad.ApoyoSubMenu(opciones, position);
+        }
+
         public static void VentaBoleta()
         {
         }
 
+        public static int SubMenuReporte()
+        {
+            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES", "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
+            int position = 30;
+            return Utilidad.ApoyoSubMenu(opciones, position);
+        }
+
         public static void ReporteProductos()
         {
+            Console.SetCursorPosition(10, 5);
+            Console.WriteLine("Codigo\tNombre\t\tCategoria\tStock\tPrecio");
+            
+            Console.SetCursorPosition(10, 7);
+            for (int i = 0; i < Producto.listaProductos?.Length; i++)
+            {               
+                string? cod = Producto.listaProductos[i]?.codigo;
+                string? nom = Producto.listaProductos[i]?.nombre;
+                string? cat = Producto.listaProductos[i]?.categoria;
+                int? sto = Producto.listaProductos[i]?.stock;
+                double? pre = Producto.listaProductos[i]?.precio;
+
+                Console.SetCursorPosition(10, 7 + i);
+                Console.WriteLine($"{cod}\t");
+                Console.SetCursorPosition(19, 7 + i);
+                Console.WriteLine($"{nom}\t");
+                Console.SetCursorPosition(39, 7 + i);
+                Console.WriteLine(cat);
+                Console.SetCursorPosition(57, 7 + i);
+                Console.WriteLine(sto);
+                Console.SetCursorPosition(66, 7 + i);
+                Console.WriteLine(pre);
+            }
+
+            Console.ReadKey();
+
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 6);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 7);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 8);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 9);
+            Console.WriteLine("                                                         ");
+            Console.SetCursorPosition(2, 12);
+            Console.WriteLine("                                                         ");
         }
 
     }
