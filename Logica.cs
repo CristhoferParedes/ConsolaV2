@@ -31,7 +31,7 @@
             Cliente.listaCliente[Cliente.contador] = CajaCliente;
             Cliente.contador++;
         }
-        public static void AgregarVendedores(string? cod, string? nom, string? ape, string? sue, string? tel)
+        public static void AgregarVendedor(string? cod, string? nom, string? ape, string? sue, string? tel)
         {
             var CajaVendedor = new Vendedor
             {
@@ -45,7 +45,7 @@
             Vendedor.listaVendedor[Vendedor.contador] = CajaVendedor;
             Vendedor.contador++;
         }
-        public static void AgregarProveedores(string? cod, string? nom, string? ruc, string? rep, string? tel, string? dir, string? ciu)
+        public static void AgregarProveedor(string? cod, string? nom, string? ruc, string? rep, string? tel, string? dir, string? ciu)
         {
             var CajaProveedor = new Proveedor
             {
@@ -60,6 +60,17 @@
 
             Proveedor.listaProveedor[Proveedor.contador] = CajaProveedor;
             Proveedor.contador++;
+        }
+        public static string BuscarNombreCliente(string dni)
+        {
+            for (int i = 0; i < Cliente.contador; i++)
+            {
+                if (Cliente.listaCliente[i].dni == dni)
+                {
+                    return Cliente.listaCliente[i].nombre +" "+ Cliente.listaCliente[i].apellido;
+                }
+            }
+            return "No se encontro el cliente";
         }
     }
 }

@@ -16,7 +16,7 @@
             Console.WriteLine("                                                                                     ");
             Console.ResetColor();
 
-            for (int i = 5; i < 20; i++)
+            for (int i = 5; i < 24; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.BackgroundColor = ConsoleColor.Yellow;
@@ -27,7 +27,7 @@
                 Console.ResetColor();
             }
 
-            Console.SetCursorPosition(0, 20);
+            Console.SetCursorPosition(0, 24);
             Console.BackgroundColor = ConsoleColor.Yellow;
             Console.WriteLine("                                                                                     ");
             Console.ResetColor();
@@ -140,9 +140,8 @@
             string? agregarTel = Console.ReadLine();
 
             Console.SetCursorPosition(2, 10);
-            Console.Write("Ingresar su correo electronico : ");
+            Console.Write("Ingresar su correo electronico: ");
             string? agregarCor = Console.ReadLine();
-
 
             Logica.AgregarCliente(agregarDni, agregarNom, agregarApe, agregarDir, agregarTel, agregarCor);
 
@@ -187,7 +186,7 @@
             Console.Write("Ingresar su telefono           : ");
             string? agregarTel = Console.ReadLine();
 
-            Logica.AgregarVendedores(agregarCod, agregarNom, agregarApe, agregarSue, agregarTel);
+            Logica.AgregarVendedor(agregarCod, agregarNom, agregarApe, agregarSue, agregarTel);
 
             Console.SetCursorPosition(2, 12);
             Console.Write("¡SE REGISTRO UN VEMDEDOR CORRECTAMENTE!");
@@ -240,11 +239,10 @@
             Console.Write("Ingresar su Ciudad              : ");
             string? agregarCiu = Console.ReadLine();
 
-
-            Logica.AgregarProveedores(agregarCod, agregarNom, agregarRuc, agregarRep, agregarTel, agregarDir ,agregarCiu);
+            Logica.AgregarProveedor(agregarCod, agregarNom, agregarRuc, agregarRep, agregarTel, agregarDir ,agregarCiu);
 
             Console.SetCursorPosition(2, 12);
-            Console.Write("¡SE REGISTRO AL NUEVO CLIENTE CORRECTAMENTE!");
+            Console.Write("¡SE REGISTRO AL PROVEEDOR CORRECTAMENTE!");
             Console.ReadLine();
 
             Console.SetCursorPosition(2, 5);
@@ -273,6 +271,70 @@
 
         public static void VentaBoleta()
         {
+            Console.SetCursorPosition(35, 6);
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("BOLETA DE VENTA");
+            Console.ResetColor();
+
+            Console.SetCursorPosition(5, 8);
+            Console.Write("DNI Cliente: ");
+            
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.WriteLine("            ");
+            Console.ResetColor();
+
+
+            Console.SetCursorPosition(5, 10);
+            Console.Write("Cliente:     ");
+
+            Console.BackgroundColor = ConsoleColor.White;
+
+            Console.Write("                                  ");
+            Console.ResetColor();
+
+
+            Console.SetCursorPosition(5, 12);
+            Console.Write("Codigo        Producto        Cantidad        Preocio uni        Monto");
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.SetCursorPosition(20, 8);
+            Console.ForegroundColor = ConsoleColor.Black;
+            string? hola = Console.ReadLine();
+            Console.ResetColor();
+            
+            //-------------------------------------------------------
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+
+            Console.SetCursorPosition(20, 10);
+            Console.WriteLine(Logica.BuscarNombreCliente(hola));
+
+            Console.ResetColor();
+            
+
+
+
+
+
+
+            //Console.SetCursorPosition(3, 15);
+            //Console.Write("¡SE REGISTRO LA VENTA CORRECTAMENTE!");
+            Console.ReadKey();
+
+            Console.SetCursorPosition(3, 6);
+            Console.Write("                                                                        ");
+            Console.SetCursorPosition(3, 8);
+            Console.Write("                                                                       ");
+            Console.SetCursorPosition(3, 10);
+            Console.Write("                                                                        ");
+            Console.SetCursorPosition(3, 12);
+            Console.Write("                                                                        ");
+            Console.SetCursorPosition(3, 14);
+            Console.Write("                                                                        ");
+            Console.SetCursorPosition(3, 16);
+            Console.Write("                                                                        ");
+            Console.SetCursorPosition(3, 18);
+            Console.Write("                                                                        ");
         }
 
         public static int SubMenuReporte()
@@ -285,7 +347,7 @@
         public static void ReporteProductos()
         {
             Console.SetCursorPosition(10, 5);
-            Console.WriteLine("Codigo\tNombre\t\tCategoria\tStock\tPrecio");
+            Console.WriteLine("Codigo |  Nombre  \t\t|   Categoria\t| Stock\t| Precio");
             
             Console.SetCursorPosition(10, 7);
             for (int i = 0; i < Producto.listaProductos?.Length; i++)
@@ -300,11 +362,11 @@
                 Console.WriteLine($"{cod}\t");
                 Console.SetCursorPosition(19, 7 + i);
                 Console.WriteLine($"{nom}\t");
-                Console.SetCursorPosition(39, 7 + i);
+                Console.SetCursorPosition(43, 7 + i);
                 Console.WriteLine(cat);
-                Console.SetCursorPosition(57, 7 + i);
+                Console.SetCursorPosition(60, 7 + i);
                 Console.WriteLine(sto);
-                Console.SetCursorPosition(66, 7 + i);
+                Console.SetCursorPosition(68, 7 + i);
                 Console.WriteLine(pre);
             }
 
