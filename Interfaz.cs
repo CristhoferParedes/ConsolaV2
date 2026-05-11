@@ -16,7 +16,7 @@
             Console.WriteLine("                                                                                     ");
             Console.ResetColor();
 
-            for (int i = 5; i < 24; i++)
+            for (int i = 5; i < 30; i++)
             {
                 Console.SetCursorPosition(0, i);
                 Console.BackgroundColor = ConsoleColor.Yellow;
@@ -27,9 +27,9 @@
                 Console.ResetColor();
             }
 
-            Console.SetCursorPosition(0, 24);
+            Console.SetCursorPosition(0, 29);
             Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("                                                                                     ");
+            Console.Write("                                                                                     ");
             Console.ResetColor();
         }
 
@@ -280,7 +280,7 @@
             Console.Write("DNI Cliente: ");
             
             Console.BackgroundColor = ConsoleColor.White;
-            Console.WriteLine("            ");
+            Console.Write("            ");
             Console.ResetColor();
 
 
@@ -288,30 +288,78 @@
             Console.Write("Cliente:     ");
 
             Console.BackgroundColor = ConsoleColor.White;
-
             Console.Write("                                  ");
             Console.ResetColor();
 
+            Console.SetCursorPosition(5, 26);
+            Console.Write("DNI Vendedor: ");
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Write("            ");
+            Console.ResetColor();
+
+            Console.SetCursorPosition(56, 8);
+            Console.Write("Nro Boleta: ");
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Write("            ");
+            Console.ResetColor();
+
+            Console.SetCursorPosition(61, 26);
+            Console.Write("Total: ");
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.Write("            ");
+            Console.ResetColor();
 
             Console.SetCursorPosition(5, 12);
-            Console.Write("Codigo        Producto        Cantidad        Preocio uni        Monto");
+            Console.Write("Codigo   |       Producto           |   Cantidad   |   Precio/U   |   Monto");
 
             Console.BackgroundColor = ConsoleColor.White;
             Console.SetCursorPosition(20, 8);
             Console.ForegroundColor = ConsoleColor.Black;
-            string? hola = Console.ReadLine();
+            string? IngresarDni = Console.ReadLine();
             Console.ResetColor();
+
             
+
             //-------------------------------------------------------
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Black;
 
             Console.SetCursorPosition(20, 10);
-            Console.WriteLine(Logica.BuscarNombreCliente(hola));
+            Console.WriteLine(Logica.BuscarNombreCliente(IngresarDni));
 
             Console.ResetColor();
-            
 
+
+            for (int i = 0; i < 5; i++)
+            {
+                Console.SetCursorPosition(5, 14 + i);
+                Console.Write("-");
+
+                Console.SetCursorPosition(5, 14 + i);
+                string? IngresarCod = Console.ReadLine();
+
+                Console.SetCursorPosition(50, 14 + i);
+                Console.Write("-");
+
+                Console.SetCursorPosition(20, 14 + i);
+                Console.WriteLine(Logica.BuscarNombreProducto(IngresarCod));
+
+                Console.SetCursorPosition(61, 14 + i);
+                string? precio = Logica.BuscarPrecioProducto(IngresarCod);
+                Console.WriteLine(precio);
+
+                Console.SetCursorPosition(50, 14 + i);
+                string? IngresarCan = Console.ReadLine();
+
+                Console.SetCursorPosition(70, 14 + i);
+                Console.WriteLine(double.Parse(precio) * double.Parse(IngresarCan));
+
+            }
+
+            
 
 
 
@@ -322,19 +370,19 @@
             Console.ReadKey();
 
             Console.SetCursorPosition(3, 6);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 8);
-            Console.Write("                                                                       ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 10);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 12);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 14);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 16);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
             Console.SetCursorPosition(3, 18);
-            Console.Write("                                                                        ");
+            Console.Write("                                                                          ");
         }
 
         public static int SubMenuReporte()

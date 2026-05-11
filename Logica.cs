@@ -1,4 +1,6 @@
-﻿namespace ConsolaV2
+﻿using System;
+
+namespace ConsolaV2
 {
     internal class Logica
     {
@@ -71,6 +73,39 @@
                 }
             }
             return "No se encontro el cliente";
+        }
+        public static string BuscarNombreProducto(string cod)
+        {
+            for (int i = 0; i < Producto.contador; i++)
+            {
+                if (Producto.listaProductos[i].codigo == cod)
+                {
+                    return Producto.listaProductos[i].nombre;
+                }
+            }
+            return "No se encontro el nombre";
+        }
+        public static string BuscarPrecioProducto(string cod)
+        {
+            for (int i = 0; i < Producto.contador; i++)
+            {
+                if (Producto.listaProductos[i].codigo == cod)
+                {
+                    return Producto.listaProductos[i].precio.ToString();
+                }
+            }
+            return "-";
+        }
+        public static string BuscarNombreVendedor(string cod)
+        {
+            for (int i = 0; i < Vendedor.contador; i++)
+            {
+                if (Vendedor.listaVendedor[i].codigo == cod)
+                {
+                    return Vendedor.listaVendedor[i].nombre + " " + Vendedor.listaVendedor[i].apellido;
+                }
+            }
+            return "No se encontro el vendedor";
         }
     }
 }
