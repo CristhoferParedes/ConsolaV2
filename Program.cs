@@ -20,9 +20,10 @@ do
                 posSubMenu = Interfaz.SubMenuRegistrar();
                 switch (posSubMenu)
                 {
-                    case 0: Interfaz.RegistarProductos(); break;
+                    case 0: Interfaz.RegistrarProductos(); break;
                     case 1: Interfaz.RegistrarClientes(); break;
                     case 2: Interfaz.RegistrarVendedores(); break;
+                    case 3: Interfaz.RegistrarProveedores(); break;
                 }
             } while (posSubMenu != 10);
             break;
@@ -44,6 +45,17 @@ do
                 {
                     case 0: Interfaz.ReporteProductos(); break;
                 }
+            } while (posSubMenu != 10);
+            break;
+        case 3:
+            do
+            {
+                posSubMenu = Interfaz.SubMenuModificar();
+                switch (posSubMenu) 
+                {
+                    case 0: Interfaz.ModificarProducto(); break; 
+                }
+
             } while (posSubMenu != 10);
             break;
     }

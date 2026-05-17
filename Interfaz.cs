@@ -9,75 +9,38 @@
             Console.WriteLine("                                                                                     ");
             Console.WriteLine("                            SISTEMA PARA GESTIONAR VENTAS                            ");
             Console.WriteLine("                                                                                     ");
-            Console.ResetColor();
 
             Console.SetCursorPosition(0, 4);
-            Console.BackgroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("                                                                                     ");
-            Console.ResetColor();
+            Console.Write("                                                                                     ");
 
             for (int i = 5; i < 30; i++)
             {
                 Console.SetCursorPosition(0, i);
-                Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.Write("  ");
                 Console.SetCursorPosition(83, i);
-                Console.BackgroundColor = ConsoleColor.Yellow;
                 Console.Write("  ");
-                Console.ResetColor();
             }
 
             Console.SetCursorPosition(0, 29);
-            Console.BackgroundColor = ConsoleColor.Yellow;
             Console.Write("                                                                                     ");
             Console.ResetColor();
         }
 
         public static int MenuPrincipal()
         {
-            var opciones = new[] { "REGISTRAR", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };
-            int index = 0;
-            ConsoleKey tecla;
-
-            do
-            {
-                Console.SetCursorPosition(1, 3);
-                for (int i = 0; i < opciones.Length; i++)
-                {                 
-                    Console.BackgroundColor = ConsoleColor.White;
-                    Console.ForegroundColor = ConsoleColor.Black;
-
-                    if (i == index) Console.BackgroundColor = ConsoleColor.Gray;
-                    
-                    Console.Write($"   {opciones[i]}   ");
-                    Console.ResetColor();
-                    Console.Write(" ");
-                }
-
-                tecla = Console.ReadKey(true).Key;
-
-                if (tecla == ConsoleKey.RightArrow)
-                {
-                    index++;
-                    if (index > opciones.Length - 1) index = 0;
-                }
-                else if (tecla == ConsoleKey.LeftArrow)
-                {
-                    index--;
-                    if (index < 0) index = opciones.Length - 1;
-                }
-            } while (tecla != ConsoleKey.Enter);
-            return index;
+            var opciones = new[] { "REGISTRAR", "VENTAS", "REPORTES", "MODIFICAR", "AYUDA", "SALIR" };                    
+            return Utilidad.CrearMenu(opciones, 1, 3 , "Horizontal");
         }
 
         public static int SubMenuRegistrar()
         {
             var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES" };
-            int position = 2;
-            return Utilidad.ApoyoSubMenu(opciones,position);
+            string orientacion = "Vertical";
+
+            return Utilidad.CrearMenu(opciones,2, 0, orientacion);
         }
 
-        public static void RegistarProductos()
+        public static void RegistrarProductos()
         {
             Console.SetCursorPosition(2, 5);
             Console.Write("Ingresar el codigo del producto : ");
@@ -264,13 +227,17 @@
 
         public static int SubMenuVentas()
         {
-            var opciones = new[] { "BOLETAS  ", "FACTURAS ", "GUIAS    ", "PROFORMAS" };
-            int position = 17;
-            return Utilidad.ApoyoSubMenu(opciones, position);
+            var opciones = new[] { "BOLETAS  ", "FACTURAS ", "GUIAS    ", "PROFORMAS" };       
+            string orientacion = "Vertical";
+
+            return Utilidad.CrearMenu(opciones, 17, 0, orientacion);
         }
 
         public static void VentaBoleta()
         {
+            string[] agregarCodProducto = new string[10];
+            int[]  agregarCantidadProducto = new int[10];
+
             Console.SetCursorPosition(35, 6);
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine("BOLETA DE VENTA");
@@ -280,7 +247,7 @@
             Console.Write("DNI Cliente: ");
             
             Console.BackgroundColor = ConsoleColor.White;
-            Console.Write("            ");
+            Console.Write("                                    ");
             Console.ResetColor();
 
 
@@ -288,24 +255,27 @@
             Console.Write("Cliente:     ");
 
             Console.BackgroundColor = ConsoleColor.White;
-            Console.Write("                                  ");
+            Console.Write("                                    ");
             Console.ResetColor();
 
-            Console.SetCursorPosition(5, 26);
+            Console.SetCursorPosition(5, 25);
             Console.Write("DNI Vendedor: ");
 
             Console.BackgroundColor = ConsoleColor.White;
-            Console.Write("            ");
+            Console.Write("                                    ");
             Console.ResetColor();
 
             Console.SetCursorPosition(56, 8);
             Console.Write("Nro Boleta: ");
 
             Console.BackgroundColor = ConsoleColor.White;
-            Console.Write("            ");
+            Console.ForegroundColor = ConsoleColor.Black;
+            int numeroBoleta = Boleta.contador + 1;
+
+            Console.Write($" {Boleta.contador + 1}-2026 ");
             Console.ResetColor();
 
-            Console.SetCursorPosition(61, 26);
+            Console.SetCursorPosition(61, 25);
             Console.Write("Total: ");
 
             Console.BackgroundColor = ConsoleColor.White;
@@ -313,12 +283,12 @@
             Console.ResetColor();
 
             Console.SetCursorPosition(5, 12);
-            Console.Write("Codigo   |       Producto           |   Cantidad   |   Precio/U   |   Monto");
+            Console.Write("CODIGO           PRODUCTO               CANTIDAD       PRECIO/U       MONTO");
 
             Console.BackgroundColor = ConsoleColor.White;
             Console.SetCursorPosition(20, 8);
             Console.ForegroundColor = ConsoleColor.Black;
-            string? IngresarDni = Console.ReadLine();
+            string? ingresarDniCliente = Console.ReadLine();
             Console.ResetColor();
 
             
@@ -328,18 +298,21 @@
             Console.ForegroundColor = ConsoleColor.Black;
 
             Console.SetCursorPosition(20, 10);
-            Console.WriteLine(Logica.BuscarNombreCliente(IngresarDni));
+            Console.WriteLine(Logica.BuscarNombreCliente(ingresarDniCliente));
 
             Console.ResetColor();
 
+            float total = 0;
 
             for (int i = 0; i < 5; i++)
             {
+
                 Console.SetCursorPosition(5, 14 + i);
                 Console.Write("-");
 
                 Console.SetCursorPosition(5, 14 + i);
                 string? IngresarCod = Console.ReadLine();
+                agregarCodProducto[i] = IngresarCod!;
 
                 Console.SetCursorPosition(50, 14 + i);
                 Console.Write("-");
@@ -349,47 +322,79 @@
 
                 Console.SetCursorPosition(61, 14 + i);
                 string? precio = Logica.BuscarPrecioProducto(IngresarCod);
+                if (precio == "") precio = "0";
+
                 Console.WriteLine(precio);
 
                 Console.SetCursorPosition(50, 14 + i);
                 string? IngresarCan = Console.ReadLine();
 
+                if (IngresarCan == "") IngresarCan = "0";
+
+                agregarCantidadProducto[i] = int.Parse(IngresarCan!);
+
                 Console.SetCursorPosition(70, 14 + i);
-                Console.WriteLine(double.Parse(precio) * double.Parse(IngresarCan));
+                float resultado =float.Parse(precio) * float.Parse(IngresarCan);
+                Console.WriteLine(resultado);
+                total += resultado;
+
+                Console.SetCursorPosition(70, 25);
+                Console.BackgroundColor = ConsoleColor.White;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine(total);
+                Console.ResetColor();
+            }
+
+
+            Console.BackgroundColor = ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.Black;
+            Console.SetCursorPosition(20, 25);
+            Console.Write("uwu");
+            Console.ResetColor();
+
+            string[] opciones = { "GUARDAR", "CANCELAR" };
+            int confirmar = Utilidad.CrearMenu(opciones, 30, 27, "Horizontal");
+
+            if (confirmar == 0)
+            {
+                Logica.AgregarBoleta(ingresarDniCliente,"none", agregarCodProducto, agregarCantidadProducto , total);
 
             }
 
             
-
-
-
-
-
-            //Console.SetCursorPosition(3, 15);
-            //Console.Write("¡SE REGISTRO LA VENTA CORRECTAMENTE!");
             Console.ReadKey();
 
             Console.SetCursorPosition(3, 6);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 8);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 10);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 12);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
+            Console.SetCursorPosition(3, 13);
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 14);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
+            Console.SetCursorPosition(3, 15);
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 16);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
+            Console.SetCursorPosition(3, 17);
+            Console.Write("                                                                             ");
             Console.SetCursorPosition(3, 18);
-            Console.Write("                                                                          ");
+            Console.Write("                                                                             ");
+            Console.SetCursorPosition(3, 25);
+            Console.Write("                                                                             ");
+            Console.SetCursorPosition(3, 27);
+            Console.Write("                                                                             ");
         }
 
         public static int SubMenuReporte()
         {
             var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES", "BOLETAS    ", "FACTURAS   ", "GUIAS      ", "PROFORMAS  " };
-            int position = 30;
-            return Utilidad.ApoyoSubMenu(opciones, position);
+
+            return Utilidad.CrearMenu(opciones, 30, 0, "Vertical");
         }
 
         public static void ReporteProductos()
@@ -434,5 +439,28 @@
             Console.WriteLine("                                                         ");
         }
 
+        public static int SubMenuModificar()
+        {
+            var opciones = new[] { "PRODUCTOS  ", "CLIENTES   ", "VENDEDORES ", "PROVEEDORES" };
+            string orientacion = "Vertical";
+
+            return Utilidad.CrearMenu(opciones, 45, 0, orientacion);//ordenar para modificar
+        }
+
+        public static void ModificarProducto()
+        {
+            Console.SetCursorPosition(2, 5);
+            Console.WriteLine($"ingrese un codigo de producto para modificar");
+            string? cod = Console.ReadLine();
+            string datosProducto = Logica.BuscarProducto(cod);
+            Console.WriteLine(datosProducto);
+            Console.WriteLine("Ingrese el nuevo nombre");
+            string? nombreNuevo = Console.ReadLine();
+            string resultado = Logica.ModificarNombreProducto(cod,nombreNuevo);
+            Console.WriteLine("Se modifico el producto");
+
+
+
+        }
     }
 }

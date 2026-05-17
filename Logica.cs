@@ -85,6 +85,18 @@ namespace ConsolaV2
             }
             return "No se encontro el nombre";
         }
+
+        public static string BuscarProducto(string cod)//tendria que retornar un objeto
+        {
+            for (int i = 0; i < Producto.contador; i++)
+            {
+                if (Producto.listaProductos[i].codigo == cod)
+                {
+                    return Producto.listaProductos[i].nombre;
+                }
+            }
+            return "No se encontro el nombre";
+        }
         public static string BuscarPrecioProducto(string cod)
         {
             for (int i = 0; i < Producto.contador; i++)
@@ -94,7 +106,7 @@ namespace ConsolaV2
                     return Producto.listaProductos[i].precio.ToString();
                 }
             }
-            return "-";
+            return "0";
         }
         public static string BuscarNombreVendedor(string cod)
         {
@@ -106,6 +118,32 @@ namespace ConsolaV2
                 }
             }
             return "No se encontro el vendedor";
+        }
+        public static void AgregarBoleta(string dniCliente, string codVendedor, string[] codProducto, int[] canProductos , float total)
+        {
+            var CajaBoleta = new Boleta
+            {
+                numeroBoleta = Boleta.contador + 1,
+                dniCliente = dniCliente,
+                codigoVendedor = codVendedor,
+                codigoProducto = codProducto,
+                cantidadProducto = canProductos,
+                total = total,
+            };
+            Boleta.listaBoleta[Boleta.contador] = CajaBoleta;
+            Boleta.contador++;
+        }
+        public static string ModificarNombreProducto(string cod, string nombreNuevo)
+        {
+            for (int i = 0; i < Producto.contador; i++)
+            {
+                if (Producto.listaProductos[i].codigo == cod)
+                {
+                    Producto.listaProductos[i].nombre = nombreNuevo;
+                    return Producto.listaProductos[i].nombre;
+                }
+            }
+            return "No se encontro el nombre";
         }
     }
 }

@@ -46,4 +46,16 @@
         public static int contador = 0;
         public static Proveedor[]? listaProveedor = new Proveedor[10];
     }
+
+    public class Boleta
+    {
+        public int? numeroBoleta;
+        public string? dniCliente;
+        public string? codigoVendedor;
+        public string[]? codigoProducto = new string[10];
+        public int[]? cantidadProducto;
+        public float? total;
+        public static int contador = 0;
+        public static Boleta[]? listaBoleta = new Boleta[10];
+    }
 }
